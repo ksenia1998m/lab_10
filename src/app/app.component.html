@@ -1,0 +1,46 @@
+<div class="header">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 col-md-4 col-12">
+                <div class="text">
+                    <h3>Добавление нового датчика</h3>
+                </div>
+                <div class="input_text">
+                    <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Имя датчика"
+                        #new_name>
+                </div>
+
+                <div class="checkbox_online">
+                    <input type="checkbox" class="form-check-input" #new_status>
+                    <p>Статус</p>
+                </div>
+
+                <div class="button_add">
+                    <button class="btn btn-success" (click)="onCreateSensor(new_name, new_status)"
+                        style="margin-left: 991px; margin-bottom: 43px;">Создать</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="main">
+    <div class="container">
+        <div class="row">
+            <div class="col-6 mb-4" *ngFor='let sensor of sensors'>
+                <div class="card">
+                    <h5 class="card-header">{{sensor.id}}</h5>
+                    <div class="card-body">
+                        <h5 class="card-title"> {{(sensor.status) ? 'Online' : 'Offline'}} </h5>
+
+                        <p class="class-text">{{sensor.name}}</p>
+
+                        <button (click)="onDeleteSensor(sensor)" type="button" class="btn btn-danger"
+                            style="margin-left: 412px; ">Удалить</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
